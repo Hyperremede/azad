@@ -315,12 +315,24 @@ function getMediCineDetail(medicineCode){
 }
 
 $(document).on('keyup', '.med_quantity', function (e) {
-    console.log(e);
-    console.log(e.keyCode);
-    var keyCode = (e.keyCode ? e.keyCode : e.which);
-    if (keyCode > 47 && keyCode < 58) {
-        e.preventDefault();
+    
+    if($("#med_code").val() != ""){
+        var keyCode = (e.keyCode ? e.keyCode : e.which);
+    
+        if (keyCode > 47 && keyCode < 58) {
+            
+        }else{
+            this.value = this.value.replace(/[^0-9\.]/g,'');
+        }
+
+        if(keyCode == 13){
+            var medcinePrice = $("#med_code").val()
+            totalValu = parseInt(replaceNumbersB2E(medicineCode) * parseInt(replaceNumbersB2E(this.value));
+        }
+    }else{
+        alert("Medicine is empty");
     }
+    
 });
 
 
